@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <title>EmployeesData</title>
+    <style>
+        #formDiv * {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+
+<body class="p-2 ">
+    <div id="employeeDetailEnterDiv">
+        <div class="m-2 text-primary">Enter new employee Data below :</div>
+        <div id="formDiv" class="border border-success m-2 d-flex flex-wrap">
+            <div class="col-12 col-md-6">
+                <label for="name">Employee Name :</label>
+                <input type="text" id="name" class="float-right" required>
+            </div>
+            <div class="col-12 col-md-6">
+                <label for="company">Company Name :</label>
+                <input type="text" id="company" class="float-right" required>
+            </div>
+            <div class="col-12 col-md-6">
+                <label for="salary">Salary :</label>
+                <input type="number" id="salary" class="float-right" required>
+            </div>
+            <div class="col-12 col-md-6">
+                <label for="position">Designation :</label>
+                <input type="text" id="position" class="float-right">
+            </div>
+            <div class="col-12 col-md-6">
+                <label for="logo">Company Logo :</label>
+                <input type="text" id="logo" placeholder=" Enter url of logo" class="float-right">
+            </div>
+            <div class="col-1">
+                <button id="employeeDataSubmitBtn" class="bg-success ">Submit</button>
+            </div>
+        </div>
+    </div>
+    <div class="m-2 border">
+        <button class="text-warning m-2" id="showAllEmployeesBtn">Show All Employees data of all Companies</button>
+    </div>
+
+    <div id="sortOPtDiv" class="d-flex justify-content-around flex-wrap m-2 border">
+        <div class="col-12 col-md-6 mt-2">
+            <label for="company">Choose a Company</label>
+            <select name="company" id="companySelect"></select>
+        </div>
+        <div class="col-12 col-md-6 mt-2">
+            <label for="salary">Salary Wise Sort</label>
+            <select name="salary" id="sortSelect">
+                <option value="increasing">Ascending</option>
+                <option value="decreasing">Descending</option>
+            </select>
+        </div>
+    </div>
+    <div id="buttonsDiv"></div>
+    <div id="cardsDiv" class="d-flex flex-wrap justify-content-around bg-success p-1 m-2"></div>
+
+    <script src="form.js"></script>
+</body>
+
+</html>
