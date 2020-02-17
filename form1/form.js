@@ -41,8 +41,8 @@ updateData = (u) => {
 }
 if (localStorage.employees != undefined) console.log("The item is already existed..!")
 else {
-    const obj = {    //do this initialisation after writing set function only
-        arr: []             //else it's showing setData not-defined.
+    const obj = {    //do this initialisation after writing set function,
+        arr: []             //else it's shows setData is not-defined.
     }
     setData(obj)
     console.log("New item initialised in localstorage.!")
@@ -65,12 +65,12 @@ removeEmployee = (delName) => {
     }
     if (flag == 1) {
         console.log(delName, " and i am removing this one.")
-        let obj= {
-            arr : outArr
+        let obj = {
+            arr: outArr
         }
-        setData(obj)
+        setData(obj)  //dont uncomment it until ur clear with outArr output
         console.log(outArr)
-        dataToCards(outArr) //dont uncomment it until ur clear with outArr output
+        dataToCards(outArr)
     }
     else {
         console.log("check this remove function.!")
@@ -108,7 +108,7 @@ function showBtnNo(n) {
     if ((start + perPageVal) >= data.arr.length) end = data.arr.length
     else end = start + perPageVal
     for (k = start; k < end; k++) { //u can use slice() also.
-        arr.push(data.arr[k])
+        arr.push(data.arr[k])       //let arr= data.arr.slice(start, end)
     }
     dataToCards(arr)
 }
@@ -135,7 +135,6 @@ function companiesList(array) {
     array.forEach(obj => {
         companies.push(obj.Company)
     })
-
     let diffCompanies = rmDuplicates(companies)
     console.log(companies, diffCompanies)
     diffCompanies.forEach(each => {
@@ -169,18 +168,9 @@ $("#sortSelect").change(() => {
     var sortType = $("#sortSelect").val()
     console.log(sortType, " is sort type")
     let data = getData()
-    // let salaries = []
-    // let objArr = data.arr
-    // objArr.forEach(obj => {
-    //     salaries.push(Number(obj.Salary))
-    // })
-    // console.log(salaries, "salaries arr")
-    // let descendingArr = sortingFunction(salaries, objArr)
-    // let ascendingArr = sortingFunction(salaries, objArr).reverse()
-
     if (sortType == "increasing") {
-        let ascendingArr= data.arr.sort((a, b) => {
-            if ( Number(a.Salary) > Number(b.Salary) )
+        let ascendingArr = data.arr.sort((a, b) => {
+            if (Number(a.Salary) > Number(b.Salary))
                 return -1;
             if (Number(a.Salary) < Number(b.Salary))
                 return 1;
@@ -191,7 +181,7 @@ $("#sortSelect").change(() => {
 
     }
     else {
-        let descendingArr= data.arr.sort((a, b) => {
+        let descendingArr = data.arr.sort((a, b) => {
             if (Number(a.Salary) < Number(b.Salary))
                 return -1;
             if (Number(a.Salary) > Number(b.Salary))
